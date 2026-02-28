@@ -1,12 +1,168 @@
-Add my given social media profiles: Instagram : "https://www.instagram.com/girish_lade_/"
+{
+  "app_name": "Invoice Maker",
+  "app_scope": "Single-page Invoice Maker only",
+  "goal": "Build a fully working, frontend-only invoice maker screen with professional SaaS-level UI and complete business logic. No dashboard, no backend, no authentication, no external APIs.",
 
-LinkedIn: "https://www.linkedin.com/in/girish-lade-075bba201/"
+  "layout": {
+    "type": "two_column",
+    "left_panel": "Invoice input and controls",
+    "right_panel": "Live invoice preview",
+    "behavior": "Real-time sync between inputs and preview"
+  },
 
-GitHub : "https://github.com/girishlade111"
+  "ui_design": {
+    "style": "Clean, modern, professional invoicing SaaS",
+    "quality_level": "Zoho Invoice or better",
+    "responsiveness": "Desktop-first, tablet and mobile responsive",
+    "theme_support": true,
+    "fonts": "Inter or system-ui",
+    "colors": {
+      "primary": "#3B82F6",
+      "background": "#FFFFFF",
+      "surface": "#F8FAFC",
+      "text": "#0F172A"
+    }
+  },
 
-Codepen : "https://codepen.io/Girish-Lade-the-looper"
+  "invoice_inputs": {
+    "basic_fields": [
+      "Invoice Number (auto-generated but editable)",
+      "Invoice Date",
+      "Due Date",
+      "Currency selector"
+    ],
+    "business_details": [
+      "Business Name",
+      "Business Address",
+      "GSTIN (optional)",
+      "Logo upload (PNG, JPG, SVG)"
+    ],
+    "customer_details": [
+      "Customer Name",
+      "Customer Address",
+      "Customer GSTIN (optional)"
+    ]
+  },
 
-e-mail : "admin@ladestack.in"
+  "items_table": {
+    "features": [
+      "Add unlimited line items",
+      "Editable item name",
+      "Editable description",
+      "Quantity input",
+      "Rate input",
+      "Tax percentage per item",
+      "Auto amount calculation",
+      "Add / remove rows",
+      "Keyboard friendly editing"
+    ]
+  },
 
-website: "ladestack.in"
-make icons design according to webapp design.
+  "calculation_logic": {
+    "line_amount": "quantity * rate",
+    "subtotal": "sum of all line amounts",
+    "tax": "percentage-based tax per item",
+    "gst_logic": {
+      "same_state": "Split tax into CGST and SGST",
+      "different_state": "Apply IGST only"
+    },
+    "discount": {
+      "types": ["percentage", "fixed"],
+      "optional": true
+    },
+    "total": "subtotal + tax - discount",
+    "rounding": "Round to 2 decimals"
+  },
+
+  "invoice_status_logic": {
+    "statuses": ["Draft", "Sent", "Partially Paid", "Paid", "Overdue"],
+    "overdue_rule": "Due date passed and remaining balance > 0"
+  },
+
+  "payments": {
+    "features": [
+      "Record payments manually",
+      "Multiple payments per invoice",
+      "Partial payments supported",
+      "Payment date",
+      "Payment method",
+      "Auto remaining balance calculation",
+      "Auto status update"
+    ]
+  },
+
+  "invoice_templates": {
+    "types": [
+      "Standard",
+      "Spreadsheet",
+      "Compact",
+      "Continental"
+    ],
+    "customization": {
+      "background_color": true,
+      "label_color": true,
+      "font_color": true,
+      "font_family": true
+    }
+  },
+
+  "live_preview": {
+    "requirements": [
+      "Pixel-accurate invoice preview",
+      "Updates instantly on input change",
+      "Shows logo, business details, customer details",
+      "Shows item table, tax breakdown, total",
+      "Shows notes and terms"
+    ]
+  },
+
+  "actions": {
+    "primary": [
+      "Save Invoice (local only)",
+      "Duplicate Invoice",
+      "Reset Invoice"
+    ],
+    "secondary": [
+      "Mark as Sent",
+      "Record Payment",
+      "Export as PDF",
+      "Print Invoice"
+    ]
+  },
+
+  "pdf_export": {
+    "type": "Client-side HTML to PDF",
+    "requirements": [
+      "PDF matches preview visually",
+      "Downloadable file",
+      "Print-ready layout"
+    ]
+  },
+
+  "data_persistence": {
+    "storage": "localStorage",
+    "scope": "Single invoice session + saved invoices list",
+    "export_import": "Optional JSON export/import"
+  },
+
+  "ux_requirements": {
+    "auto_save": true,
+    "unsaved_changes_warning": true,
+    "inline_validation": true,
+    "empty_state_handling": true
+  },
+
+  "constraints": {
+    "no_backend": true,
+    "no_authentication": true,
+    "no_dashboard": true,
+    "no_reports": true,
+    "no_customer_management_page": true
+  },
+
+  "output_expectation": {
+    "result": "A single, fully functional invoice maker screen",
+    "quality": "Production-ready frontend, not a mockup",
+    "logic": "All calculations and behaviors must actually work"
+  }
+}

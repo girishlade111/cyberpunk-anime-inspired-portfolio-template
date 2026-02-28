@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girish Lade | Founder of Lade Stack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           CSS VARIABLES & DESIGN SYSTEM
+           ========================================= */
+        :root {
+            --bg-deep: #0a0f1f;
+            --bg-darker: #050812;
+            --bg-panel: rgba(10, 15, 31, 0.7);
+            --color-crimson: #ff2e63;
+            --color-cyan: #00f5ff;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --font-heading: 'Rajdhani', sans-serif;
+            --font-body: 'Space Grotesk', sans-serif;
+            --glow-cyan: 0 0 15px rgba(0, 245, 255, 0.5);
+            --glow-crimson: 0 0 15px rgba(255, 46, 99, 0.5);
+            --border-tech: 1px solid rgba(0, 245, 255, 0.2);
+        }
+
+        /* =========================================
+           RESET & BASE STYLES
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+        }
+
+        body {
+            position: relative;
+            overflow-x: hidden;
+            background: radial-gradient(circle at 50% 50%, var(--bg-deep) 0%, var(--bg-darker) 100%);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* =========================================
+           BACKGROUND CANVAS & PARTICLES
+           ========================================= */
+        #energy-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.6;
+            mix-blend-mode: screen;
+        }
+
+        /* =========================================
+           NAVIGATION
+           ========================================= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(5, 8, 18, 0.9);
+            border-bottom: var(--border-tech);
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-cyan);
+            text-shadow: var(--glow-cyan);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-mark {
+            color: var(--color-crimson);
+            text-shadow: var(--glow-crimson);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-cyan);
+            text-shadow: var(--glow-cyan);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--color-cyan);
+            transition: width 0.3s ease;
+            box-shadow: var(--glow-cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            text-align: center;
+        }
+
+        /* Ambient subtle smoke overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 245, 255, 0.05) 0%, transparent 60%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin-bottom: 1rem;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--color-cyan);
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+            position: relative;
+            z-index: 2;
+            background: #111; /* Fallback */
+        }
+
+        /* Rotating Aura Rings */
+        .aura-ring-1, .aura-ring-2 {
+            position: absolute;
+            top: -15px; left: -15px; right: -15px; bottom: -15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .aura-ring-1 {
+            border: 2px dashed var(--color-cyan);
+            animation: spin 15s linear infinite;
+            opacity: 0.6;
+        }
+
+        .aura-ring-2 {
+            top: -25px; left: -25px; right: -25px; bottom: -25px;
+            border: 2px dotted var(--color-crimson);
+            animation: spin-reverse 20s linear infinite;
+            box-shadow: 0 0 20px rgba(255, 46, 99, 0.3) inset;
+            opacity: 0.4;
+        }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, var(--color-cyan), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-cyan);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-family: var(--font-heading);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+            border: none;
+            background: transparent;
+            color: var(--text-main);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid var(--color-cyan);
+            box-shadow: inset 0 0 10px rgba(0, 245, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-cyan);
+            color: var(--bg-deep);
+            box-shadow: 0 0 20px var(--color-cyan);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 46, 99, 0.1);
+            border: 1px solid var(--color-crimson);
+            box-shadow: inset 0 0 10px rgba(255, 46, 99, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-crimson);
+            color: #fff;
+            box-shadow: 0 0 20px var(--color-crimson);
+        }
+
+        /* =========================================
+           SCROLL REVEAL & COMMON SECTION STYLES
+           ========================================= */
+        section {
+            padding: 100px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            color: var(--text-main);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::before, .section-title::after {
+            content: '////';
+            color: var(--color-crimson);
+            font-size: 1.5rem;
+            vertical-align: middle;
+            margin: 0 1rem;
+            opacity: 0.7;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glowing-divider {
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, var(--color-cyan), transparent);
+            opacity: 0.5;
+            box-shadow: var(--glow-cyan);
+            margin: 3rem 0;
+        }
+
+        /* =========================================
+           ABOUT SECTION (Digital Scroll)
+           ========================================= */
+        .digital-scroll-container {
+            position: relative;
+            padding: 3rem;
+            background: var(--bg-panel);
+            border-left: 4px solid var(--color-cyan);
+            border-right: 4px solid var(--color-crimson);
+            backdrop-filter: blur(5px);
+            max-width: 900px;
+            margin: 0 auto;
+            transform: scaleY(0);
+            transform-origin: center;
+            transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .digital-scroll-container.active {
+            transform: scaleY(1);
+        }
+
+        /* Scroll handles */
+        .digital-scroll-container::before, .digital-scroll-container::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            right: -10px;
+            height: 10px;
+            background: linear-gradient(90deg, #333, #666, #333);
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .digital-scroll-container::before { top: -10px; }
+        .digital-scroll-container::after { bottom: -10px; }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text strong {
+            color: var(--color-cyan);
+            font-weight: 600;
+        }
+
+        .focus-list {
+            list-style: none;
+        }
+
+        .focus-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+
+        .focus-list li::before {
+            content: '►';
+            position: absolute;
+            left: 0;
+            color: var(--color-crimson);
+            font-size: 0.8rem;
+            top: 4px;
+            text-shadow: var(--glow-crimson);
+        }
+
+        /* =========================================
+           SKILLS SECTION (Chakra Bars)
+           ========================================= */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(10, 15, 31, 0.4);
+            padding: 2rem;
+            border: var(--border-tech);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-cyan);
+            box-shadow: inset 0 0 20px rgba(0, 245, 255, 0.05);
+        }
+
+        .skill-category h3 {
+            color: var(--color-cyan);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .skill-bar-bg {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, var(--color-cyan), var(--color-crimson));
+            border-radius: 3px;
+            box-shadow: var(--glow-cyan);
+            transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+        }
+
+        /* Hover lightning effect inside fill */
+        .skill-item:hover .skill-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            animation: lightning 0.5s linear;
+        }
+
+        @keyframes lightning {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* =========================================
+           PROJECTS SECTION (Ninja Data Panels)
+           ========================================= */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-panel);
+            border: 1px solid rgba(255, 46, 99, 0.2);
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--color-crimson);
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-cyan);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 245, 255, 0.1);
+        }
+
+        .project-card:hover::before {
+            background: var(--color-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        /* Energy Burst Hover */
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            background: radial-gradient(circle, rgba(0,245,255,0.2) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: width 0.5s ease, height 0.5s ease;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .project-card:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .project-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            color: var(--color-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: var(--color-cyan);
+            font-family: var(--font-heading);
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           EXPERIENCE / MISSION
+           ========================================= */
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* Neon vertical line */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--color-cyan), var(--color-crimson), transparent);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--bg-panel);
+            border: var(--border-tech);
+            padding: 2rem;
+            width: 90%;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Glowing dots */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: calc(50% - 8px);
+            width: 16px;
+            height: 16px;
+            background: var(--bg-deep);
+            border: 3px solid var(--color-cyan);
+            border-radius: 50%;
+            box-shadow: var(--glow-cyan);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: calc(50% - 8px);
+        }
+
+        .mission-statement {
+            text-align: center;
+            font-size: 2rem;
+            font-family: var(--font-heading);
+            color: #fff;
+            margin-top: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--color-cyan), var(--color-crimson));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+        }
+
+        /* =========================================
+           CONTACT SECTION
+           ========================================= */
+        .contact-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(5, 8, 18, 0.8);
+            padding: 3rem;
+            border: var(--border-tech);
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .contact-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, var(--color-cyan), transparent, var(--color-crimson));
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0.5rem;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 1rem;
+            left: 0.5rem;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-bottom-color: var(--color-cyan);
+            box-shadow: 0 5px 15px -10px var(--color-cyan);
+        }
+
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -10px;
+            font-size: 0.8rem;
+            color: var(--color-cyan);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 1px solid var(--color-cyan);
+            color: var(--color-cyan);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            background: rgba(0, 245, 255, 0.1);
+            box-shadow: var(--glow-cyan);
+            animation: pulse-energy 1.5s infinite;
+        }
+
+        @keyframes pulse-energy {
+            0% { box-shadow: 0 0 0 0 rgba(0, 245, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 245, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 245, 255, 0); }
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: var(--font-heading);
+            color: var(--text-muted);
+            background: var(--bg-darker);
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN
+           ========================================= */
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 3rem; }
+            .timeline-item, .timeline-item:nth-child(even) {
+                justify-content: flex-end;
+                padding-left: 0;
+                padding-right: 0;
+                width: 100%;
+                margin-left: 20px;
+            }
+            .timeline-container::before { left: 0; }
+            .timeline-item::after, .timeline-item:nth-child(even):::after { left: -8px; right: auto; }
+            .timeline-content { width: calc(100% - 30px); margin-left: auto; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified for mobile, ideally add a hamburger */
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 0.9rem; }
+            .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; }
+            .avatar-wrapper { width: 160px; height: 160px; }
+            .digital-scroll-container { padding: 1.5rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="energy-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">LADE<span class="logo-mark">STACK</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#mission">Mission</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="avatar-wrapper reveal">
+                <!-- Aura Rings -->
+                <div class="aura-ring-1"></div>
+                <div class="aura-ring-2"></div>
+                <!-- Realistic Avatar Placeholder (Business/Tech styling) -->
+                <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=400&q=80" alt="Girish Lade" class="avatar">
+            </div>
+            
+            <div class="reveal" style="transition-delay: 0.2s;">
+                <h1 class="hero-title">Engineering the Future<br>With AI Precision</h1>
+                <p class="hero-subtitle">Girish Lade | Founder of Lade Stack | UI/UX Architect | AI Systems Builder</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#about" class="btn btn-secondary">Explore Lade Stack</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">The Architect</h2>
+            </div>
+            
+            <!-- Digital Scroll Container -->
+            <div class="digital-scroll-container scroll-reveal" id="scroll-box">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>I am an <strong>innovative entrepreneur</strong> and modern builder working at the intersection of AI, design, and scalable SaaS systems.</p>
+                        <p>Based in India 🇮🇳, my passion lies in Generative AI, intelligent automation, and crafting developer-first tools that break the boundaries of conventional software.</p>
+                        <p>As the founder of <strong>Lade Stack</strong>, I am constructing an AI-powered ecosystem of intelligent productivity tools designed for the future.</p>
+                    </div>
+                    <div class="about-focus">
+                        <h3 style="color: var(--color-cyan); margin-bottom: 1rem; font-family: var(--font-heading);">Current Focus Directives</h3>
+                        <ul class="focus-list">
+                            <li>Building AI SaaS products & ecosystem integration</li>
+                            <li>Developing next-gen cloud-based file sharing platforms</li>
+                            <li>Researching advanced Generative AI systems</li>
+                            <li>Learning Kotlin for high-performance mobile apps</li>
+                            <li>Architecting full-stack scalable infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="glowing-divider"></div>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Chakra Reserves & Tech Mastery</h2>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Frontend -->
+                <div class="skill-category reveal">
+                    <h3>Frontend Mastery</h3>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>HTML, CSS, JS/TS</span><span>95%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="95%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>React Ecosystem</span><span>90%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Flutter (Mobile UI)</span><span>80%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="80%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="skill-category reveal" style="transition-delay: 0.1s;">
+                    <h3>Backend Engineering</h3>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Node.js Architecture</span><span>88%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="88%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>MongoDB / NoSQL</span><span>85%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>MySQL / Relational</span><span>80%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="80%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Cloud -->
+                <div class="skill-category reveal" style="transition-delay: 0.2s;">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>AWS Infrastructure</span><span>82%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="82%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Google Cloud Platform</span><span>85%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Docker Containerization</span><span>75%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="75%"></div></div>
+                    </div>
+                </div>
+
+                <!-- AI / Design -->
+                <div class="skill-category reveal" style="transition-delay: 0.3s;">
+                    <h3>AI & Design Systems</h3>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Generative AI Integration</span><span>92%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="92%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Figma (UI/UX)</span><span>95%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="95%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Photoshop & Blender</span><span>78%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-fill" data-width="78%"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Arsenal & Data Archives</h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card reveal">
+                    <div class="project-content">
+                        <div class="project-icon">✦</div>
+                        <h3 class="project-title">AI Code Enhancer</h3>
+                        <p class="project-desc">An intelligent developer tool that leverages Generative AI to optimize, refactor, and generate boilerplate code seamlessly, bridging the gap between human logic and machine speed.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">GenAI API</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card reveal" style="transition-delay: 0.1s;">
+                    <div class="project-content">
+                        <div class="project-icon">☁</div>
+                        <h3 class="project-title">Cloud File Sharing</h3>
+                        <p class="project-desc">A highly scalable, secure, and fast cloud architecture designed for seamless large-scale file sharing and encrypted storage across global nodes.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card reveal" style="transition-delay: 0.2s;">
+                    <div class="project-content">
+                        <div class="project-icon">⚡</div>
+                        <h3 class="project-title">API Testing Tool</h3>
+                        <p class="project-desc">A lightweight, lightning-fast dashboard for testing backend endpoints, managing authentication headers, and simulating high-load traffic.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card reveal" style="transition-delay: 0.3s;">
+                    <div class="project-content">
+                        <div class="project-icon">❂</div>
+                        <h3 class="project-title">AI Workspace Suite</h3>
+                        <p class="project-desc">The crown jewel of Lade Stack. An integrated productivity environment utilizing AI to automate daily tasks, design system generation, and data visualization.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Full Stack</span>
+                            <span class="tech-tag">GCP</span>
+                            <span class="tech-tag">Figma API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="glowing-divider"></div>
+
+    <!-- Experience / Mission Section -->
+    <section id="mission">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">The Path & Vision</h2>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--color-cyan); margin-bottom: 0.5rem;">Foundation</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Mastering the core principles of UI/UX, full-stack development, and cloud computing architectures to build a solid base.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--color-crimson); margin-bottom: 0.5rem;">AI Integration</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Pioneering research into Generative AI systems and learning how to bridge neural network capabilities with practical SaaS solutions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <h3 style="color: var(--color-cyan); margin-bottom: 0.5rem;">Lade Stack Inception</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Establishing the Lade Stack brand. An ecosystem dedicated to empowering developers and creators through automated, intelligent tools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal">
+                <h2 class="mission-statement">“Building intelligent systems<br>that empower creators.”</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Establish Connection</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Ready to forge the next generation of AI and SaaS?</p>
+            </div>
+
+            <div class="contact-wrapper reveal">
+                <form onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder=" " required>
+                        <label for="name">Alias / Designation</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Comms Channel (Email)</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder=" " required></textarea>
+                        <label for="message">Transmission Data</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Initiate Sequence</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Girish Lade | Lade Stack. Engineered for the Future.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // ==========================================
+        // UI INTERACTIONS & SCROLL EFFECTS
+        // ==========================================
+        
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for Scroll Reveals
+        const revealElements = document.querySelectorAll('.reveal, .scroll-reveal');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Specific trigger for skill bars to animate width
+                    if (entry.target.classList.contains('skill-category')) {
+                        const skillFills = entry.target.querySelectorAll('.skill-fill');
+                        skillFills.forEach(fill => {
+                            fill.style.width = fill.getAttribute('data-width');
+                        });
+                    }
+                    
+                    observer.unobserve(entry.target); // Trigger only once
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+
+        // ==========================================
+        // CANVAS PARTICLE SYSTEM (Chakra/Energy Embers)
+        // ==========================================
+        const canvas = document.getElementById('energy-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+
+        // Set Canvas Dimensions
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        setCanvasSize();
+        window.addEventListener('resize', setCanvasSize);
+
+        // Particle Class
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.5 + 0.5;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * -1.5 - 0.5; // Flow upwards
+                // Mix of Cyan and Crimson for the theme
+                const colors = ['rgba(0, 245, 255, 0.6)', 'rgba(255, 46, 99, 0.6)', 'rgba(0, 245, 255, 0.2)'];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.life = Math.random() * 100 + 50;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.life -= 0.5;
+                
+                // Add slight wobble
+                this.x += Math.sin(this.y * 0.05) * 0.5;
+
+                // Reset particle if it dies or goes off screen
+                if (this.life <= 0 || this.y < 0) {
+                    this.x = Math.random() * canvas.width;
+                    this.y = canvas.height + 10;
+                    this.life = Math.random() * 100 + 50;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+            }
+        }
+
+        // Init Particles
+        function initParticles() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.width * canvas.height) / 10000; 
+            // Cap particles for performance
+            if (numberOfParticles > 150) numberOfParticles = 150; 
+            
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        initParticles();
+
+        // Animation Loop
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Re-init on significant resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(initParticles, 200);
+        });
+    </script>
+</body>
+</html>

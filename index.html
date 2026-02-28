@@ -6,24 +6,26 @@
     <title>Girish Lade | Founder of Lade Stack</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         /* =========================================
            CSS VARIABLES & DESIGN SYSTEM
            ========================================= */
         :root {
-            --bg-deep: #0a0f1f;
-            --bg-darker: #050812;
-            --bg-panel: rgba(10, 15, 31, 0.7);
-            --color-crimson: #ff2e63;
-            --color-cyan: #00f5ff;
-            --text-main: #e2e8f0;
-            --text-muted: #94a3b8;
-            --font-heading: 'Rajdhani', sans-serif;
+            --bg-deep: #0f0c08;
+            --bg-darker: #080604;
+            --bg-panel: rgba(15, 12, 8, 0.85);
+            --color-crimson: #ff6600; /* Nine-Tails Orange */
+            --color-cyan: #00bfff; /* Chakra Blue */
+            --color-red: #da0000; /* Akatsuki Red */
+            --text-main: #f4e8d1; /* Parchment white */
+            --text-muted: #bdae93;
+            --font-heading: 'Teko', sans-serif;
             --font-body: 'Space Grotesk', sans-serif;
-            --glow-cyan: 0 0 15px rgba(0, 245, 255, 0.5);
-            --glow-crimson: 0 0 15px rgba(255, 46, 99, 0.5);
-            --border-tech: 1px solid rgba(0, 245, 255, 0.2);
+            --glow-cyan: 0 0 15px rgba(0, 191, 255, 0.5);
+            --glow-crimson: 0 0 15px rgba(255, 102, 0, 0.5);
+            --border-tech: 1px solid rgba(255, 102, 0, 0.3);
+            --bg-parchment: #eaddcf;
         }
 
         /* =========================================
@@ -114,18 +116,19 @@
 
         .logo {
             font-family: var(--font-heading);
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: var(--color-cyan);
-            text-shadow: var(--glow-cyan);
+            color: var(--color-crimson);
+            text-shadow: var(--glow-crimson);
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            letter-spacing: 2px;
         }
 
         .logo-mark {
-            color: var(--color-crimson);
-            text-shadow: var(--glow-crimson);
+            color: var(--color-cyan);
+            text-shadow: var(--glow-cyan);
         }
 
         .nav-links {
@@ -143,8 +146,8 @@
         }
 
         .nav-links a:hover {
-            color: var(--color-cyan);
-            text-shadow: var(--glow-cyan);
+            color: var(--color-crimson);
+            text-shadow: var(--glow-crimson);
         }
 
         .nav-links a::after {
@@ -154,9 +157,9 @@
             left: 0;
             width: 0%;
             height: 2px;
-            background: var(--color-cyan);
+            background: var(--color-crimson);
             transition: width 0.3s ease;
-            box-shadow: var(--glow-cyan);
+            box-shadow: var(--glow-crimson);
         }
 
         .nav-links a:hover::after {
@@ -208,7 +211,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--color-cyan);
-            box-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.4);
             position: relative;
             z-index: 2;
             background: #111; /* Fallback */
@@ -223,34 +226,39 @@
         }
 
         .aura-ring-1 {
-            border: 2px dashed var(--color-cyan);
-            animation: spin 15s linear infinite;
-            opacity: 0.6;
+            border: 4px solid rgba(0, 191, 255, 0.8);
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            animation: spin 3s linear infinite;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+            opacity: 0.8;
+            filter: blur(2px);
         }
 
         .aura-ring-2 {
             top: -25px; left: -25px; right: -25px; bottom: -25px;
-            border: 2px dotted var(--color-crimson);
-            animation: spin-reverse 20s linear infinite;
-            box-shadow: 0 0 20px rgba(255, 46, 99, 0.3) inset;
-            opacity: 0.4;
+            border: 3px dashed var(--color-crimson);
+            animation: spin-reverse 8s linear infinite;
+            box-shadow: 0 0 30px rgba(255, 102, 0, 0.4) inset, 0 0 20px rgba(255, 102, 0, 0.4);
+            opacity: 0.7;
         }
 
         @keyframes spin { 100% { transform: rotate(360deg); } }
         @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: 5rem;
             line-height: 1.1;
-            background: linear-gradient(to right, #fff, var(--color-cyan), #fff);
+            background: linear-gradient(to right, #fff, var(--color-crimson), #fff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+            text-shadow: 0 0 20px rgba(255, 102, 0, 0.2);
             margin-bottom: 0.5rem;
+            letter-spacing: 2px;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: var(--color-cyan);
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -284,27 +292,31 @@
         }
 
         .btn-primary {
-            background: rgba(0, 245, 255, 0.1);
-            border: 1px solid var(--color-cyan);
-            box-shadow: inset 0 0 10px rgba(0, 245, 255, 0.2);
+            background: rgba(255, 102, 0, 0.1);
+            border: 2px solid var(--color-crimson);
+            box-shadow: inset 0 0 10px rgba(255, 102, 0, 0.2);
+            border-radius: 4px;
+            clip-path: none;
         }
 
         .btn-primary:hover {
-            background: var(--color-cyan);
-            color: var(--bg-deep);
-            box-shadow: 0 0 20px var(--color-cyan);
+            background: var(--color-crimson);
+            color: #111;
+            box-shadow: 0 0 20px var(--color-crimson);
         }
 
         .btn-secondary {
-            background: rgba(255, 46, 99, 0.1);
-            border: 1px solid var(--color-crimson);
-            box-shadow: inset 0 0 10px rgba(255, 46, 99, 0.2);
+            background: rgba(0, 191, 255, 0.1);
+            border: 2px solid var(--color-cyan);
+            box-shadow: inset 0 0 10px rgba(0, 191, 255, 0.2);
+            border-radius: 4px;
+            clip-path: none;
         }
 
         .btn-secondary:hover {
-            background: var(--color-crimson);
-            color: #fff;
-            box-shadow: 0 0 20px var(--color-crimson);
+            background: var(--color-cyan);
+            color: #111;
+            box-shadow: 0 0 20px var(--color-cyan);
         }
 
         /* =========================================
@@ -322,19 +334,22 @@
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--text-main);
             position: relative;
             display: inline-block;
         }
 
         .section-title::before, .section-title::after {
-            content: '////';
+            content: '✺'; /* Shuriken Motif */
             color: var(--color-crimson);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             vertical-align: middle;
             margin: 0 1rem;
-            opacity: 0.7;
+            opacity: 0.9;
+            text-shadow: var(--glow-crimson);
+            display: inline-block;
+            animation: spin 10s linear infinite;
         }
 
         .reveal {
@@ -349,49 +364,51 @@
         }
 
         .glowing-divider {
-            height: 2px;
+            height: 3px;
             width: 100%;
-            background: linear-gradient(90deg, transparent, var(--color-cyan), transparent);
-            opacity: 0.5;
-            box-shadow: var(--glow-cyan);
+            background: linear-gradient(90deg, transparent, var(--color-crimson), var(--color-cyan), transparent);
+            opacity: 0.7;
+            box-shadow: var(--glow-crimson);
             margin: 3rem 0;
         }
 
         /* =========================================
-           ABOUT SECTION (Digital Scroll)
+           ABOUT SECTION (Ninja Scroll)
            ========================================= */
         .digital-scroll-container {
             position: relative;
-            padding: 3rem;
-            background: var(--bg-panel);
-            border-left: 4px solid var(--color-cyan);
-            border-right: 4px solid var(--color-crimson);
-            backdrop-filter: blur(5px);
+            padding: 4rem 3rem;
+            background: var(--bg-parchment);
+            color: #2b2b2b;
+            border-radius: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 50px rgba(0,0,0,0.1);
             max-width: 900px;
             margin: 0 auto;
             transform: scaleY(0);
             transform-origin: center;
             transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+            background-image: repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0,0,0,0.02) 20px, rgba(0,0,0,0.02) 21px);
         }
 
         .digital-scroll-container.active {
             transform: scaleY(1);
         }
 
-        /* Scroll handles */
+        /* Scroll wooden handles */
         .digital-scroll-container::before, .digital-scroll-container::after {
             content: '';
             position: absolute;
-            left: -10px;
-            right: -10px;
-            height: 10px;
-            background: linear-gradient(90deg, #333, #666, #333);
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            left: -20px;
+            right: -20px;
+            height: 25px;
+            background: linear-gradient(90deg, #3d2314, #8b5a2b, #3d2314);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.6), inset 0 2px 5px rgba(255,255,255,0.2);
+            border: 2px solid #2a160a;
         }
 
-        .digital-scroll-container::before { top: -10px; }
-        .digital-scroll-container::after { bottom: -10px; }
+        .digital-scroll-container::before { top: -12px; }
+        .digital-scroll-container::after { bottom: -12px; }
 
         .about-grid {
             display: grid;
@@ -402,13 +419,14 @@
         .about-text p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--text-muted);
+            color: #4a3b32;
             margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
         .about-text strong {
-            color: var(--color-cyan);
-            font-weight: 600;
+            color: #8b0000;
+            font-weight: 700;
         }
 
         .focus-list {
@@ -420,17 +438,18 @@
             padding-left: 2rem;
             margin-bottom: 1rem;
             font-size: 1.05rem;
-            color: var(--text-main);
+            color: #2b2b2b;
+            font-weight: 600;
         }
 
         .focus-list li::before {
-            content: '►';
+            content: '✇'; /* Kunai Motif */
             position: absolute;
             left: 0;
             color: var(--color-crimson);
-            font-size: 0.8rem;
-            top: 4px;
-            text-shadow: var(--glow-crimson);
+            font-size: 1.2rem;
+            top: 2px;
+            text-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
         }
 
         /* =========================================
@@ -455,16 +474,17 @@
         .skill-category:hover {
             transform: translateY(-5px);
             border-color: var(--color-cyan);
-            box-shadow: inset 0 0 20px rgba(0, 245, 255, 0.05);
+            box-shadow: inset 0 0 20px rgba(0, 191, 255, 0.05);
         }
 
         .skill-category h3 {
-            color: var(--color-cyan);
+            color: var(--color-crimson);
             margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            font-size: 2rem;
             display: flex;
             align-items: center;
             gap: 10px;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
         }
 
         .skill-item {
@@ -492,20 +512,20 @@
         .skill-fill {
             height: 100%;
             width: 0;
-            background: linear-gradient(90deg, var(--color-cyan), var(--color-crimson));
+            background: linear-gradient(90deg, var(--color-cyan), #00ffcc);
             border-radius: 3px;
             box-shadow: var(--glow-cyan);
             transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             position: relative;
         }
 
-        /* Hover lightning effect inside fill */
+        /* Hover chakra lightning effect inside fill */
         .skill-item:hover .skill-fill::after {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
-            animation: lightning 0.5s linear;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            animation: lightning 0.8s ease-in-out infinite;
         }
 
         @keyframes lightning {
@@ -524,41 +544,49 @@
 
         .project-card {
             background: var(--bg-panel);
-            border: 1px solid rgba(255, 46, 99, 0.2);
+            border: 2px solid rgba(255, 102, 0, 0.2);
             padding: 2.5rem 2rem;
             position: relative;
             transition: all 0.4s ease;
             cursor: pointer;
             overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+            border-radius: 8px;
+            background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="18" fill="none" stroke="rgba(255, 102, 0, 0.05)" stroke-width="1"/><path d="M20 2L20 38M2 20L38 20" stroke="rgba(255, 102, 0, 0.05)" stroke-width="1"/></svg>');
         }
 
         .project-card::before {
-            content: '';
+            content: attr(data-rank);
             position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            background: var(--color-crimson);
+            top: 15px; right: -35px; 
+            background: var(--color-red);
+            color: #fff;
+            font-family: var(--font-heading);
+            padding: 2px 35px;
+            transform: rotate(45deg);
+            font-size: 1rem;
+            letter-spacing: 2px;
             transition: all 0.4s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            z-index: 10;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            border-color: var(--color-cyan);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 245, 255, 0.1);
+            border-color: var(--color-crimson);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(255, 102, 0, 0.1);
         }
 
         .project-card:hover::before {
-            background: var(--color-cyan);
-            box-shadow: var(--glow-cyan);
+            background: var(--color-crimson);
         }
 
-        /* Energy Burst Hover */
+        /* Chakra Burst Hover */
         .project-card::after {
             content: '';
             position: absolute;
             top: 50%; left: 50%;
             width: 0; height: 0;
-            background: radial-gradient(circle, rgba(0,245,255,0.2) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.2) 0%, transparent 70%);
             transform: translate(-50%, -50%);
             border-radius: 50%;
             transition: width 0.5s ease, height 0.5s ease;
@@ -577,15 +605,18 @@
         }
 
         .project-icon {
-            font-size: 2.5rem;
-            color: var(--color-cyan);
+            font-size: 3rem;
+            color: var(--color-crimson);
             margin-bottom: 1rem;
+            text-shadow: var(--glow-crimson);
         }
 
         .project-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
             color: #fff;
+            font-family: var(--font-heading);
+            letter-spacing: 1px;
         }
 
         .project-desc {
@@ -602,14 +633,15 @@
         }
 
         .tech-tag {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             padding: 0.3rem 0.8rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            background: rgba(0, 191, 255, 0.1);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            border-radius: 4px;
             color: var(--color-cyan);
             font-family: var(--font-heading);
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         /* =========================================
@@ -628,10 +660,11 @@
             position: absolute;
             top: 0; left: 50%;
             transform: translateX(-50%);
-            width: 2px;
+            width: 4px;
             height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--color-cyan), var(--color-crimson), transparent);
-            box-shadow: var(--glow-cyan);
+            background: linear-gradient(to bottom, transparent, var(--color-crimson), var(--color-cyan), transparent);
+            box-shadow: var(--glow-crimson);
+            border-radius: 2px;
         }
 
         .timeline-item {
@@ -655,39 +688,44 @@
             width: 90%;
             position: relative;
             backdrop-filter: blur(5px);
+            border-radius: 8px;
         }
 
         /* Glowing dots */
         .timeline-item::after {
-            content: '';
+            content: '✇';
             position: absolute;
             top: 20px;
-            right: calc(50% - 8px);
-            width: 16px;
-            height: 16px;
+            right: calc(50% - 14px);
+            width: 28px;
+            height: 28px;
             background: var(--bg-deep);
-            border: 3px solid var(--color-cyan);
+            color: var(--color-crimson);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
-            box-shadow: var(--glow-cyan);
             z-index: 2;
+            text-shadow: var(--glow-crimson);
         }
 
         .timeline-item:nth-child(even)::after {
-            left: calc(50% - 8px);
+            left: calc(50% - 14px);
         }
 
         .mission-statement {
             text-align: center;
-            font-size: 2rem;
+            font-size: 3rem;
             font-family: var(--font-heading);
             color: #fff;
             margin-top: 4rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            background: linear-gradient(90deg, var(--color-cyan), var(--color-crimson));
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, var(--color-crimson), var(--color-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 245, 255, 0.3);
+            text-shadow: 0 0 30px rgba(255, 102, 0, 0.3);
         }
 
         /* =========================================
@@ -696,20 +734,22 @@
         .contact-wrapper {
             max-width: 700px;
             margin: 0 auto;
-            background: rgba(5, 8, 18, 0.8);
+            background: rgba(15, 12, 8, 0.9);
             padding: 3rem;
-            border: var(--border-tech);
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255, 102, 0, 0.3);
+            border-radius: 8px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(255, 102, 0, 0.05);
             position: relative;
         }
 
         .contact-wrapper::before {
             content: '';
             position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, var(--color-cyan), transparent, var(--color-crimson));
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            background: linear-gradient(45deg, var(--color-crimson), transparent, var(--color-cyan));
             z-index: -1;
-            opacity: 0.3;
+            opacity: 0.5;
+            border-radius: 10px;
         }
 
         .form-group {
@@ -743,8 +783,8 @@
         }
 
         .form-group input:focus, .form-group textarea:focus {
-            border-bottom-color: var(--color-cyan);
-            box-shadow: 0 5px 15px -10px var(--color-cyan);
+            border-bottom-color: var(--color-crimson);
+            box-shadow: 0 5px 15px -10px var(--color-crimson);
         }
 
         .form-group input:focus + label,
@@ -752,36 +792,38 @@
         .form-group textarea:focus + label,
         .form-group textarea:not(:placeholder-shown) + label {
             top: -10px;
-            font-size: 0.8rem;
-            color: var(--color-cyan);
+            font-size: 0.9rem;
+            color: var(--color-crimson);
         }
 
         .submit-btn {
             width: 100%;
             padding: 1rem;
-            background: transparent;
-            border: 1px solid var(--color-cyan);
-            color: var(--color-cyan);
+            background: rgba(255, 102, 0, 0.1);
+            border: 2px solid var(--color-crimson);
+            color: var(--color-crimson);
             font-family: var(--font-heading);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            border-radius: 4px;
         }
 
         .submit-btn:hover {
-            background: rgba(0, 245, 255, 0.1);
-            box-shadow: var(--glow-cyan);
-            animation: pulse-energy 1.5s infinite;
+            background: var(--color-crimson);
+            color: #111;
+            box-shadow: var(--glow-crimson);
+            animation: pulse-chakra 1.5s infinite;
         }
 
-        @keyframes pulse-energy {
-            0% { box-shadow: 0 0 0 0 rgba(0, 245, 255, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 245, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 245, 255, 0); }
+        @keyframes pulse-chakra {
+            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.6); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 102, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
         }
 
         /* =========================================
@@ -836,11 +878,11 @@
         <div class="container nav-content">
             <a href="#" class="logo">LADE<span class="logo-mark">STACK</span></a>
             <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#mission">Mission</a>
-                <a href="#contact">Contact</a>
+                <a href="#about">The Shinobi</a>
+                <a href="#skills">Chakra</a>
+                <a href="#projects">Missions</a>
+                <a href="#mission">Nindō</a>
+                <a href="#contact">Summon</a>
             </div>
         </div>
     </nav>
@@ -857,11 +899,11 @@
             </div>
             
             <div class="reveal" style="transition-delay: 0.2s;">
-                <h1 class="hero-title">Engineering the Future<br>With AI Precision</h1>
-                <p class="hero-subtitle">Girish Lade | Founder of Lade Stack | UI/UX Architect | AI Systems Builder</p>
+                <h1 class="hero-title">Engineering the Future<br>With Chakra & Code</h1>
+                <p class="hero-subtitle">Girish Lade | Founder of Lade Stack | UI/UX Hokage | AI Systems Builder</p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#about" class="btn btn-secondary">Explore Lade Stack</a>
+                    <a href="#projects" class="btn btn-primary">View Mission Archives</a>
+                    <a href="#about" class="btn btn-secondary">Explore The Village</a>
                 </div>
             </div>
         </div>
@@ -871,24 +913,24 @@
     <section id="about">
         <div class="container">
             <div class="section-header reveal">
-                <h2 class="section-title">The Architect</h2>
+                <h2 class="section-title">The Shinobi Architect</h2>
             </div>
             
             <!-- Digital Scroll Container -->
             <div class="digital-scroll-container scroll-reveal" id="scroll-box">
                 <div class="about-grid">
                     <div class="about-text">
-                        <p>I am an <strong>innovative entrepreneur</strong> and modern builder working at the intersection of AI, design, and scalable SaaS systems.</p>
-                        <p>Based in India 🇮🇳, my passion lies in Generative AI, intelligent automation, and crafting developer-first tools that break the boundaries of conventional software.</p>
-                        <p>As the founder of <strong>Lade Stack</strong>, I am constructing an AI-powered ecosystem of intelligent productivity tools designed for the future.</p>
+                        <p>I am an <strong>innovative creator</strong> and modern builder working at the intersection of AI, design, and scalable SaaS systems.</p>
+                        <p>Based in India 🇮🇳, my passion lies in Generative AI, intelligent automation, and crafting developer-first tools that break the boundaries of conventional software, much like mastering a forbidden jutsu.</p>
+                        <p>As the founder of <strong>Lade Stack</strong>, I am constructing an AI-powered ecosystem of intelligent productivity tools designed for the future shinobi.</p>
                     </div>
                     <div class="about-focus">
-                        <h3 style="color: var(--color-cyan); margin-bottom: 1rem; font-family: var(--font-heading);">Current Focus Directives</h3>
+                        <h3 style="color: #8b0000; margin-bottom: 1rem; font-family: var(--font-heading); font-size: 2.2rem;">Current Nindō (Ninja Way)</h3>
                         <ul class="focus-list">
-                            <li>Building AI SaaS products & ecosystem integration</li>
-                            <li>Developing next-gen cloud-based file sharing platforms</li>
-                            <li>Researching advanced Generative AI systems</li>
-                            <li>Learning Kotlin for high-performance mobile apps</li>
+                            <li>Forging AI SaaS products & ecosystem integration</li>
+                            <li>Developing Rank-S cloud file sharing platforms</li>
+                            <li>Researching advanced Generative AI jutsu</li>
+                            <li>Mastering Kotlin for high-performance mobile apps</li>
                             <li>Architecting full-stack scalable infrastructure</li>
                         </ul>
                     </div>
@@ -903,13 +945,13 @@
     <section id="skills">
         <div class="container">
             <div class="section-header reveal">
-                <h2 class="section-title">Chakra Reserves & Tech Mastery</h2>
+                <h2 class="section-title">Chakra Reserves & Jutsu Mastery</h2>
             </div>
 
             <div class="skills-grid">
                 <!-- Frontend -->
                 <div class="skill-category reveal">
-                    <h3>Frontend Mastery</h3>
+                    <h3><span style="font-size: 1.5rem">👁️‍🗨️</span> Visual Jutsu (Frontend)</h3>
                     <div class="skill-item">
                         <div class="skill-info"><span>HTML, CSS, JS/TS</span><span>95%</span></div>
                         <div class="skill-bar-bg"><div class="skill-fill" data-width="95%"></div></div>
@@ -926,7 +968,7 @@
 
                 <!-- Backend -->
                 <div class="skill-category reveal" style="transition-delay: 0.1s;">
-                    <h3>Backend Engineering</h3>
+                    <h3><span style="font-size: 1.5rem">📜</span> Core Seals (Backend)</h3>
                     <div class="skill-item">
                         <div class="skill-info"><span>Node.js Architecture</span><span>88%</span></div>
                         <div class="skill-bar-bg"><div class="skill-fill" data-width="88%"></div></div>
@@ -943,7 +985,7 @@
 
                 <!-- Cloud -->
                 <div class="skill-category reveal" style="transition-delay: 0.2s;">
-                    <h3>Cloud & DevOps</h3>
+                    <h3><span style="font-size: 1.5rem">☁️</span> Cloud Summoning</h3>
                     <div class="skill-item">
                         <div class="skill-info"><span>AWS Infrastructure</span><span>82%</span></div>
                         <div class="skill-bar-bg"><div class="skill-fill" data-width="82%"></div></div>
@@ -960,7 +1002,7 @@
 
                 <!-- AI / Design -->
                 <div class="skill-category reveal" style="transition-delay: 0.3s;">
-                    <h3>AI & Design Systems</h3>
+                    <h3><span style="font-size: 1.5rem">🦊</span> Nine-Tails AI</h3>
                     <div class="skill-item">
                         <div class="skill-info"><span>Generative AI Integration</span><span>92%</span></div>
                         <div class="skill-bar-bg"><div class="skill-fill" data-width="92%"></div></div>
@@ -982,15 +1024,15 @@
     <section id="projects">
         <div class="container">
             <div class="section-header reveal">
-                <h2 class="section-title">Arsenal & Data Archives</h2>
+                <h2 class="section-title">Mission Archives & Arsenal</h2>
             </div>
 
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card reveal">
+                <div class="project-card reveal" data-rank="RANK S">
                     <div class="project-content">
-                        <div class="project-icon">✦</div>
-                        <h3 class="project-title">AI Code Enhancer</h3>
+                        <div class="project-icon">🌀</div>
+                        <h3 class="project-title">AI Code Enhancer (Rasengan)</h3>
                         <p class="project-desc">An intelligent developer tool that leverages Generative AI to optimize, refactor, and generate boilerplate code seamlessly, bridging the gap between human logic and machine speed.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Node.js</span>
@@ -1001,11 +1043,11 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card reveal" style="transition-delay: 0.1s;">
+                <div class="project-card reveal" style="transition-delay: 0.1s;" data-rank="RANK A">
                     <div class="project-content">
-                        <div class="project-icon">☁</div>
+                        <div class="project-icon">🦅</div>
                         <h3 class="project-title">Cloud File Sharing</h3>
-                        <p class="project-desc">A highly scalable, secure, and fast cloud architecture designed for seamless large-scale file sharing and encrypted storage across global nodes.</p>
+                        <p class="project-desc">A highly scalable, secure, and fast cloud architecture designed for seamless large-scale file sharing and encrypted storage across global hidden villages.</p>
                         <div class="project-tech">
                             <span class="tech-tag">AWS</span>
                             <span class="tech-tag">MongoDB</span>
@@ -1015,10 +1057,10 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card reveal" style="transition-delay: 0.2s;">
+                <div class="project-card reveal" style="transition-delay: 0.2s;" data-rank="RANK A">
                     <div class="project-content">
                         <div class="project-icon">⚡</div>
-                        <h3 class="project-title">API Testing Tool</h3>
+                        <h3 class="project-title">API Testing Tool (Chidori)</h3>
                         <p class="project-desc">A lightweight, lightning-fast dashboard for testing backend endpoints, managing authentication headers, and simulating high-load traffic.</p>
                         <div class="project-tech">
                             <span class="tech-tag">JavaScript</span>
@@ -1029,9 +1071,9 @@
                 </div>
 
                 <!-- Project 4 -->
-                <div class="project-card reveal" style="transition-delay: 0.3s;">
+                <div class="project-card reveal" style="transition-delay: 0.3s;" data-rank="RANK S">
                     <div class="project-content">
-                        <div class="project-icon">❂</div>
+                        <div class="project-icon">👁️</div>
                         <h3 class="project-title">AI Workspace Suite</h3>
                         <p class="project-desc">The crown jewel of Lade Stack. An integrated productivity environment utilizing AI to automate daily tasks, design system generation, and data visualization.</p>
                         <div class="project-tech">
@@ -1051,34 +1093,34 @@
     <section id="mission">
         <div class="container">
             <div class="section-header reveal">
-                <h2 class="section-title">The Path & Vision</h2>
+                <h2 class="section-title">The Shinobi Path</h2>
             </div>
 
             <div class="timeline-container">
                 <div class="timeline-item reveal">
                     <div class="timeline-content">
-                        <h3 style="color: var(--color-cyan); margin-bottom: 0.5rem;">Foundation</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Mastering the core principles of UI/UX, full-stack development, and cloud computing architectures to build a solid base.</p>
+                        <h3 style="color: var(--color-crimson); margin-bottom: 0.5rem; font-family: var(--font-heading); font-size: 1.8rem;">Academy Foundation</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Mastering the core principles of UI/UX, full-stack development, and cloud computing architectures to build a solid base.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item reveal">
                     <div class="timeline-content">
-                        <h3 style="color: var(--color-crimson); margin-bottom: 0.5rem;">AI Integration</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Pioneering research into Generative AI systems and learning how to bridge neural network capabilities with practical SaaS solutions.</p>
+                        <h3 style="color: var(--color-cyan); margin-bottom: 0.5rem; font-family: var(--font-heading); font-size: 1.8rem;">Chūnin Exams: AI Integration</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Pioneering research into Generative AI systems and learning how to bridge neural network capabilities with practical SaaS solutions.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item reveal">
                     <div class="timeline-content">
-                        <h3 style="color: var(--color-cyan); margin-bottom: 0.5rem;">Lade Stack Inception</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Establishing the Lade Stack brand. An ecosystem dedicated to empowering developers and creators through automated, intelligent tools.</p>
+                        <h3 style="color: var(--color-crimson); margin-bottom: 0.5rem; font-family: var(--font-heading); font-size: 1.8rem;">Jōnin: Lade Stack Inception</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Establishing the Lade Stack brand. An ecosystem dedicated to empowering developers and creators through automated, intelligent tools.</p>
                     </div>
                 </div>
             </div>
 
             <div class="reveal">
-                <h2 class="mission-statement">“Building intelligent systems<br>that empower creators.”</h2>
+                <h2 class="mission-statement">“I'm not gonna run away, I never go back on my code!<br>That's my Nindō: My Ninja Way!”</h2>
             </div>
         </div>
     </section>
@@ -1087,15 +1129,15 @@
     <section id="contact">
         <div class="container">
             <div class="section-header reveal">
-                <h2 class="section-title">Establish Connection</h2>
-                <p style="color: var(--text-muted); margin-top: 1rem;">Ready to forge the next generation of AI and SaaS?</p>
+                <h2 class="section-title">Summoning Jutsu (Contact)</h2>
+                <p style="color: var(--text-muted); margin-top: 1rem; font-size: 1.1rem;">Ready to forge the next generation of AI and SaaS? Send a messenger bird.</p>
             </div>
 
             <div class="contact-wrapper reveal">
                 <form onsubmit="event.preventDefault();">
                     <div class="form-group">
                         <input type="text" id="name" placeholder=" " required>
-                        <label for="name">Alias / Designation</label>
+                        <label for="name">Shinobi Name / Designation</label>
                     </div>
                     <div class="form-group">
                         <input type="email" id="email" placeholder=" " required>
@@ -1103,9 +1145,9 @@
                     </div>
                     <div class="form-group">
                         <textarea id="message" rows="4" placeholder=" " required></textarea>
-                        <label for="message">Transmission Data</label>
+                        <label for="message">Transmission Scroll Data</label>
                     </div>
-                    <button type="submit" class="submit-btn">Initiate Sequence</button>
+                    <button type="submit" class="submit-btn">Perform Summoning</button>
                 </form>
             </div>
         </div>
@@ -1113,7 +1155,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Girish Lade | Lade Stack. Engineered for the Future.</p>
+            <p>&copy; 2026 Girish Lade | Lade Stack. Engineered for the Future Hidden Village.</p>
         </div>
     </footer>
 
@@ -1183,8 +1225,8 @@
                 this.size = Math.random() * 2.5 + 0.5;
                 this.speedX = Math.random() * 1 - 0.5;
                 this.speedY = Math.random() * -1.5 - 0.5; // Flow upwards
-                // Mix of Cyan and Crimson for the theme
-                const colors = ['rgba(0, 245, 255, 0.6)', 'rgba(255, 46, 99, 0.6)', 'rgba(0, 245, 255, 0.2)'];
+                // Mix of Chakra Blue and Kurama Orange for the theme
+                const colors = ['rgba(0, 191, 255, 0.6)', 'rgba(255, 102, 0, 0.6)', 'rgba(0, 191, 255, 0.2)', 'rgba(218, 0, 0, 0.4)'];
                 this.color = colors[Math.floor(Math.random() * colors.length)];
                 this.life = Math.random() * 100 + 50;
             }

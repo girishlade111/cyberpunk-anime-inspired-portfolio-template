@@ -528,6 +528,42 @@
             height: 20px;
             fill: var(--color-crimson);
             filter: drop-shadow(0 0 2px rgba(255,102,0,0.5));
+        }
+
+        /* =========================================
+           SKILLS SECTION (Chakra Bars)
+           ========================================= */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(10, 15, 31, 0.4);
+            padding: 2rem;
+            border: var(--border-tech);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-cyan);
+            box-shadow: inset 0 0 20px rgba(0, 191, 255, 0.05);
+        }
+
+        .skill-category h3 {
+            color: var(--color-crimson);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+        }
 
         .skill-item {
             margin-bottom: 1.5rem;

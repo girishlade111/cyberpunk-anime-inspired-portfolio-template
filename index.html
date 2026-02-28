@@ -48,7 +48,33 @@
         body {
             position: relative;
             overflow-x: hidden;
-            background: radial-gradient(circle at 50% 50%, var(--bg-deep) 0%, var(--bg-darker) 100%);
+            background-color: #050408;
+            background-image: 
+                /* Glowing center of the moon */
+                radial-gradient(circle at 80% 20%, #ffffff 0%, #ffcccc 10px, transparent 15px),
+                /* The Red Moon body */
+                radial-gradient(circle at 80% 20%, #da0000 15px, rgba(218,0,0,0.8) 80px, transparent 85px),
+                /* The Moon's red aura */
+                radial-gradient(circle at 80% 20%, rgba(255, 50, 0, 0.3) 85px, transparent 500px),
+                /* Background ambient sky */
+                linear-gradient(to bottom, #050408 0%, #120a06 100%);
+            background-attachment: fixed;
+        }
+
+        /* Tsukuyomi / Rinnegan Rings radiating from the moon */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: repeating-radial-gradient(
+                circle at 80% 20%,
+                transparent 0,
+                transparent 30px,
+                rgba(0, 0, 0, 0.4) 32px,
+                transparent 35px
+            );
+            z-index: -2;
+            pointer-events: none;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -188,6 +214,22 @@
             top: 0; left: 0; right: 0; bottom: 0;
             background: radial-gradient(circle at center, rgba(0, 245, 255, 0.05) 0%, transparent 60%);
             z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Manga Action Speed Lines */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0deg,
+                transparent 5deg,
+                rgba(255, 255, 255, 0.02) 5.1deg,
+                transparent 5.5deg
+            );
+            z-index: 1;
             pointer-events: none;
         }
 

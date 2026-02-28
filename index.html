@@ -738,49 +738,6 @@
             gap: 0.5rem;
         }
 
-        .tech-tag {
-            font-size: 0.8rem;
-            padding: 0.3rem 0.8rem;
-            background: rgba(0, 191, 255, 0.1);
-            border: 1px solid rgba(0, 191, 255, 0.3);
-            border-radius: 4px;
-            color: var(--color-cyan);
-            font-family: var(--font-heading);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* =========================================
-           EXPERIENCE / MISSION
-           ========================================= */
-        .timeline-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        /* Neon vertical line */
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--color-crimson), var(--color-cyan), transparent);
-            box-shadow: var(--glow-crimson);
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            display: flex;
-            justify-content: flex-end;
-            padding-right: 50%;
-            position: relative;
-            margin-bottom: 3rem;
-        }
-
         .timeline-item:nth-child(even) {
             justify-content: flex-start;
             padding-right: 0;
